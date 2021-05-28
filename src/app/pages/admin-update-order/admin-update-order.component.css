@@ -1,0 +1,192 @@
+.content {
+    padding: auto;
+    margin: auto;
+    text-align: center;
+    margin-top: 5%;
+  }
+  .main {
+    margin: auto;
+  }
+  
+  .form-group h2 {
+    font-family: Product Sans;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: 0px;
+    text-align: left;
+    margin-bottom: 30px;
+    width: 350px;
+  }
+  form label {
+    font-family: Product Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    color: #222222;
+    margin-bottom: 5px;
+  }
+  
+  .form-control {
+    background: #f7f7f7;
+    border-radius: 8px;
+    padding: 15px 12px;
+    font-family: Product Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 160%;
+    color: #222222 !important;
+    width: 350px;
+    height: 50px;
+    border: none;
+  }
+  .form-group {
+    text-align: left;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .login-btn {
+    height: 50px;
+    width: 150px;
+    background: #02b654;
+    border-radius: 4px;
+    
+    font-family: Product Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    border: none;
+    color: #ffffff;
+  }
+  .forgot-btn {
+    background: #ffffff;
+    border: 1px solid rgba(34, 34, 34, 0.2);
+    border-radius: 4px;
+    width: 350px;
+    height: 50px;
+    font-family: Product Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    margin-top: 10px;
+    color: #222222;
+  }
+  .row-padding {
+    padding: 6px 7rem 6px 7rem;
+  }
+  
+  .form-group p {
+    font-size: 14px;
+    font-weight: 100;
+  }
+  .form-group .input-custome {
+    height: 60px;
+    width: 740px;
+    left: 450px;
+    top: 385px;
+    border-radius: 8px;
+  }
+  .form-group {
+    width: max-content;
+  }
+  .center-section {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .col-sm-6 {
+    text-align: left;
+  }
+  
+  .right {
+    float: right;
+  }
+  .section-margin {
+    margin-bottom: 50px;
+  }
+  .block-status {
+    padding: 30px 40px;
+    height: 158px;
+    width: 350px;
+    background: #f7f7f7;
+    border-radius: 8px;
+    margin-bottom: 30px;
+  }
+  .block-status div {
+    width: 100%;
+  }
+  .t {
+    font-family: Product Sans !important;
+    font-style: normal !important;
+    font-weight: bold !important;
+    font-size: 16px !important;
+    line-height: 16px !important;
+    color: #222222 !important;
+  }
+  .a {
+    font-family: Product Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 16px;
+    float: right;
+  }
+  hr {
+    width: 290px;
+    height: 1px;
+    background: #c4c4c4;
+    opacity: 0.2;
+    margin-top: 0px;
+  }
+  
+  .t-total {
+    font-family: Product Sans !important;
+    font-style: normal !important;
+    font-weight: bold !important;
+    font-size: 20px !important;
+    color: #222222 !important;
+  }
+  .white-background {
+    background: #fafafa !important;
+    background-color: #fafafa !important;
+  }
+  
+  .form-group h3 {
+    font-family: Product Sans;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: 0px;
+  }
+  .steppr-section {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .block{
+    display: block;
+  }
+  .resend-email-btn{
+  background: #ffffff;
+    border: 1px solid rgba(34, 34, 34, 0.2);
+    border-radius: 4px;
+    width: 150px;
+    height: 50px;
+    font-family: Product Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    margin-right: 10px;
+    color: #222222;
+  }
+ 

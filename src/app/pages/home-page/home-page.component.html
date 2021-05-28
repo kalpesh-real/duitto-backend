@@ -1,0 +1,35 @@
+
+<app-header-component></app-header-component>
+
+
+<div class="content">
+  <div class="main main-container">
+    <div
+      class="text-center logo"
+    >
+      <img src="/assets/img/shoppingbags.png">
+    </div>
+    <div class="subinfo">
+      Buy top western brands just by forwarding the product URL. 
+    </div>
+    <div class="row row-padding">
+      <div class=" producturl">
+        <input type="text"class="form-control" [(ngModel)]="this.service.productUrl" placeholder="Add product URL..."/>
+        <button (click)="goToOrderPage()">Order</button>
+      </div>
+      <div class="text-danger" *ngIf="orderClick &&  this.service.productUrl.trim().length== 0" style="width: 100%;">
+        <small>Please enter product url*</small>
+      </div> 
+      <div class="demo-vedio-div">
+        <span>Check the demo fo demonstration</span>
+        <div>
+          <video controls class="demo-vedio"></video>
+        </div>
+      
+      </div>
+      
+    </div>
+  </div>
+</div> 
+
+<app-footer></app-footer>

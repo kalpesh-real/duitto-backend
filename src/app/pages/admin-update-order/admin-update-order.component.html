@@ -1,0 +1,438 @@
+<app-header-component></app-header-component>
+
+<div class="content">
+  <div class="main">
+    <div class="steppr-section">
+    
+          <div class="row" *ngIf="true">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+              <form [formGroup]="orderForm">
+
+                <div class="row">
+
+                    <div class="col-sm-6">
+                        <div class="form-group ">
+                          <label for="orderNumber" class="font-weight-bold">Order Number</label>
+                          <span class="block"> No. {{orderNumber}}</span>
+                     
+                         
+                         
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group right">
+                          <label for="orderPlacedDate" class="font-weight-bold">Order Placed Date</label>
+                         <span class="block">
+{{dateFormat(orderPlacementDate)}}
+                         </span>
+                         
+                      
+                        </div>
+                      </div>
+
+                </div>
+                <br>
+                <div class="form-group center-section section-margin">
+                  <h2>Product URL</h2>
+                  <input
+                    class="form-control center-section input-custome"
+                    formControlName="productUrl"
+                    readonly
+                  />
+                 
+                </div>
+                <DIV>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group right">
+                        <h2>Shiping Address</h2>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group right">
+                        <label for="password">Shipping Address</label>
+                        <input
+                          type="text"
+                          name="shippingAddress"
+                          formControlName="shippingAddress"
+                          class="form-control"
+                          readonly
+                        />
+                       
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="currency">Currency</label>
+                        <input
+                          type="text"
+                          name="currency"
+                          formControlName="currency"
+                          class="form-control"
+                          readonly
+                        />
+                       
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group right">
+                        <label for="title">Country</label>
+                        <input
+                          type="text"
+                          name="country"
+                          formControlName="country"
+                          class="form-control"
+                          readonly
+                        />
+                       
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Quantity</label>
+                        <input
+                          type="number"
+                          name="quantity"
+                          formControlName="quantity"
+                          class="form-control"
+                          readonly
+                        />
+
+                       
+                      </div>
+                    </div>
+                  </div>
+                </DIV>
+<br>
+               <DIV>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group right">
+                        <h2>Payment Details</h2>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group right">
+                        <label for="status">Status</label>
+                        <select
+                        class="form-control"
+                        formControlName="status"
+                        name="status"
+                        (change)="selectedStatus($event.target.value)"
+                      >
+                      
+                        <option value="0">Unapprove</option>
+                        <option value="paymentcaptured">Payment Captured</option>
+                        <option value="approve">Approve</option>
+                        <option value="reject">Payment Captured</option>
+                        <option value="completed">Completed</option>
+                        <option value="reject">Reject</option>
+                      </select>
+                        <div
+                          class="text-danger"
+                          *ngIf="
+                            orderSubmitted &&
+                            orderForm.get('firstName').hasError('required')
+                          "
+                        >
+                          <small>Please enter first name*</small>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="adyenPspReference">Adyen psp reference</label>
+                        <input
+                          type="text"
+                          name="adyenPspReference"
+                          formControlName="adyenPspReference"
+                          class="form-control"
+                         
+                        />
+                        <div
+                          class="text-danger"
+                          *ngIf="
+                            orderSubmitted &&
+                            orderForm.get('adyenPspReference').hasError('required')
+                          "
+                        >
+                          <small>Please enter last name*</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group right">
+                        <label for="password">Price</label>
+                        <input
+                          type="text"
+                          name="price"
+                          formControlName="price"
+                          class="form-control"
+                          
+                        />
+                        <div
+                          class="text-danger"
+                          *ngIf="
+                            orderSubmitted &&
+                            orderForm.get('price').hasError('required')
+                          "
+                        >
+                          <small>Please enter price*</small>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="adyenResultCode">Adyen result code</label>
+                        <input
+                          type="text"
+                          name="adyenResultCode"
+                          formControlName="adyenResultCode"
+                          class="form-control"
+                          
+                        />
+                        <div
+                          class="text-danger"
+                          *ngIf="
+                            orderSubmitted &&
+                            orderForm.get('adyenResultCode').hasError('required')
+                          "
+                        >
+                          <small>Please enter last name*</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group right">
+                        <label for="deliveryCost">Delivery Cost</label>
+                        <input
+                          type="text"
+                          name="deliveryCost"
+                          formControlName="deliveryCost"
+                          class="form-control"
+                          
+                        />
+                        <div
+                          class="text-danger"
+                          *ngIf="
+                            orderSubmitted &&
+                            orderForm.get('deliveryCost').hasError('required')
+                          "
+                        >
+                          <small>Please enter delivery cost*</small>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="adyenMerchantRefNo">Adyen merchant ref. number</label>
+                        <input
+                          type="text"
+                          name="adyenMerchantRefNo"
+                          formControlName="adyenMerchantRefNo"
+                          class="form-control"
+                        
+                        />
+                        <div
+                          class="text-danger"
+                          *ngIf="
+                            orderSubmitted &&
+                            orderForm.get('adyenMerchantRefNo').hasError('required')
+                          "
+                        >
+                          <small>Please enter last name*</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group right">
+                        <label for="total">Total</label>
+                        <input
+                        type="text"
+                        name="total"
+                        formControlName="total"
+                        class="form-control"
+                      
+                      />
+                        <div
+                          class="text-danger"
+                          *ngIf="
+                            orderSubmitted &&
+                            orderForm.get('total').hasError('required')
+                          "
+                        >
+                          <small>Please enter total*</small>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Billing Address</label>
+                        <input
+                        type="text"
+                        name="billingAddress"
+                        formControlName="billingAddress"
+                        class="form-control"
+                        readonly
+                      />
+
+                        
+                     
+                      </div>
+                    </div>
+                  </div>
+                </DIV>
+
+                <br>
+                <DIV>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group right">
+                          <h2>Delivery Details</h2>
+                        </div>
+                      </div>
+                    </div>
+  
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group right">
+                          <label for="consignmentStatus">Consignment Status</label>
+                          <select
+                            class="form-control"
+                            formControlName="consignmentStatus"
+                          >
+                            <option value="0" default>Select Status</option>
+                            <option value="ready">Ready</option>
+                            <option value="picked">Picked</option>
+                            <option value="shipped">Shipped</option>
+                          </select>
+                          <div
+                            class="text-danger"
+                            *ngIf="
+                              orderSubmitted &&
+                              orderForm.get('consignmentStatus').hasError('required')
+                            "
+                          >
+                            <small>Please select consignment status*</small>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group" style="display: inline-grid;">
+                          <label for="shippedDate">Shipped date</label>
+                          
+                          <mat-form-field appearance="fill" style="display: flex;
+                          ">
+                           
+                            <input matInput [matDatepicker]="picker" formControlName="shippedDate" name="shippedDate" class="form-control">
+                            <mat-datepicker-toggle matSuffix [for]="picker" style="margin-left: -45px;"></mat-datepicker-toggle >
+                            <mat-datepicker #picker></mat-datepicker>
+                          </mat-form-field>
+                          
+                          <!-- <input
+                            type="text"
+                            name="shippedDate"
+                            formControlName="shippedDate"
+                            class="form-control"
+                           
+                          /> -->
+                     
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group right">
+                          <label for="estDeliverydays">Estimated delivery days</label>
+                          <input
+                            type="number"
+                            name="estDeliverydays"
+                            formControlName="estDeliverydays"
+                            class="form-control"
+                           
+                          />
+                          <div
+                            class="text-danger"
+                            *ngIf="
+                              orderSubmitted &&
+                              orderForm.get('estDeliverydays').hasError('required')
+                            "
+                          >
+                            <small>Please enter est delivery days*</small>
+                          </div>
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </DIV>
+
+                  <br>
+                  <DIV>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group right">
+                          <h2>Reject Reason</h2>
+                        </div>
+                      </div>
+                    </div>
+  
+                    <div class="row">
+                       
+                      <textarea class="form-control w-100 h-50"  placeholder="Type reason here..."  name="rejectedReason"
+                      formControlName="rejectedReason"
+                      [disabled] = "rejectReasonSection"
+                      >
+
+                      </textarea >
+                        
+                      
+                    </div>
+                    
+                  </DIV>
+
+                  <br>
+                  <DIV>
+                <div class="row">
+                
+                    <button class="resend-email-btn" >
+                        Resend Email
+                      </button>
+                     
+                      <button class="login-btn right" (click) = "update()">
+                        Save
+                      </button>
+                    
+                </div>
+                </DIV>
+              </form>
+              
+            </div>  
+            <div class="col-sm-3"></div>
+          </div>
+
+    </div>
+  </div>
+</div>
+<div [class.loader-hidden]="!show">
+  <div class="loader-overlay">
+      <div>
+          <div *ngIf="show" class="loader"></div>
+      </div>
+  </div>
+</div>
+<app-footer></app-footer>

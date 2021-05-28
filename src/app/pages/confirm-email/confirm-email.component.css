@@ -1,0 +1,63 @@
+.content {
+    padding: auto;
+    margin: auto;
+    text-align: center;
+    margin-top: 5%;
+  }
+  .main {
+    padding: 20px 30px 20px 30px;
+  }
+  .search-order-div {
+    padding: 6px;
+    text-align: center;
+    width: 100%;
+    text-align: center;
+  }
+  
+  
+.icon{
+    font-size: 69px;
+    color: lawngreen;
+    margin-top: 10px;
+    margin-left: auto;
+     margin-right: auto;
+}
+ .center-card{
+     width: 600px;
+     height: 600px;
+     margin-top: 9%;
+     margin-left: auto;
+     margin-right: auto;
+     text-align: center;
+ }
+ .center-card p{
+     font-size: 20px;
+
+ }
+ .center-card span{
+    margin-top: 10px;
+ }
+ .loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+  
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  

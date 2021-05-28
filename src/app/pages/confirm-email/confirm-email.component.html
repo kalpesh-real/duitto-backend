@@ -1,0 +1,13 @@
+<div class="content">
+    <div class="main main-container">
+            <div class="center-card">
+                    <p>Confirming your email...</p>
+                    <div class="loader" *ngIf="displayLoader"></div>
+
+                    <mat-icon class="icon" *ngIf="!displayLoader">done_outline</mat-icon>
+
+                   <span *ngIf="!displayLoader">Confirmation done! Go to <a routerLink="/login">Login</a></span>
+
+            </div>
+    </div>
+  </div> 

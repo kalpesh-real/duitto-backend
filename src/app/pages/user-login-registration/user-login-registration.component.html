@@ -1,0 +1,308 @@
+
+
+<app-header-component></app-header-component>
+
+<div style="text-align: center; padding: 12px;clear: both;">
+  <h1 mat-dialog-title class="title-modal">Sign In or Register</h1>
+</div>
+
+<div class="main">
+  <div class="tab-buttons">
+    <div class="btns " [ngClass]="{'active-tab': newCustomer}" (click)="changeTab('new')">
+      <span> <input type="radio" name="tabs" />I am a new customer </span>
+    </div>
+
+    <div class="btns" [ngClass]="{'active-tab': !newCustomer}" (click)="changeTab('old')">
+      <span> <input type="radio" name="tabs" />I am a returning customer </span>
+    </div>
+</div>
+
+  <div class="row row-padding" *ngIf="newCustomer">
+    <div class="col-sm-2"></div>
+
+    <div class="col-sm-8">
+      <div>
+        <!-- Resgister Section -->
+        <form [formGroup]="registerForm">
+          <div class="form-group">
+            <label for="title">Title</label>
+            <select class="form-control" formControlName="nameTitle">
+              <option value="mr">Mr</option>
+              <option value="mrs">Mrs</option>
+            </select>
+
+            <div
+              class="text-danger"
+              *ngIf="
+                registerIsSubmitted &&
+                registerForm.get('nameTitle').hasError('required')
+              "
+            >
+              <small>Title required*</small>
+            </div>
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="password">First name</label>
+            <input
+              type="text"
+              name="firstname"
+              class="form-control"
+              formControlName="firstName"
+              placeholder="Enter your first name"
+            />
+            <div
+              class="text-danger"
+              *ngIf="
+                registerIsSubmitted &&
+                registerForm.get('firstName').hasError('required')
+              "
+            >
+              <small>Please enter first name*</small>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="lastname">Last name</label>
+            <input
+              type="text"
+              name="lastname"
+              formControlName="lastName"
+              class="form-control"
+              placeholder="Enter Your last name"
+            />
+
+            <div
+              class="text-danger"
+              *ngIf="
+                registerIsSubmitted &&
+                registerForm.get('lastName').hasError('required')
+              "
+            >
+              <small>Please enter last name*</small>
+            </div>
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="company">Company</label>
+            <input
+              type="text"
+              name="company"
+              formControlName="companyName"
+              class="form-control"
+              placeholder="Enter your Company"
+            />
+            <div
+              class="text-danger"
+              *ngIf="
+                registerIsSubmitted &&
+                registerForm.get('companyName').hasError('required')
+              "
+            >
+              <small>Please enter company name*</small>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="phoneNumber">Phone</label>
+            <input
+              type="text"
+              formControlName="phoneNumber"
+              class="form-control"
+              placeholder="Enter Your Phone number"
+            />
+            <div
+              class="text-danger"
+              *ngIf="
+              registerIsSubmitted &&
+              (registerForm.get('phoneNumber').hasError('required') ||
+                registerForm.get('phoneNumber').hasError('pattern'))
+              "
+            >
+              <small>Please enter valid phone number*</small>
+            </div>
+          </div>
+
+          <!-- <div class="form-group">
+            <label for="phoneNumber">Mobile number</label>
+            <input
+              type="text"
+              formControlName="mobileNumber"
+              class="form-control"
+              placeholder="Enter Your Mobile number"
+            />
+            <div
+              class="text-danger"
+              *ngIf="
+                registerIsSubmitted &&
+                (registerForm.get('mobileNumber').hasError('required') ||
+                  registerForm.get('mobileNumber').hasError('pattern'))
+              "
+            >
+              <small>Please enter valid mobile number*</small>
+            </div>
+          </div>  -->
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              formControlName="email"
+              class="form-control"
+              placeholder="Enter Your Email"
+            />
+            <div
+              class="text-danger"
+              *ngIf="
+                registerIsSubmitted &&
+                (registerForm.get('email').hasError('required') ||
+                  registerForm.get('email').hasError('email'))
+              "
+            >
+              <small>Please enter valid email address*</small>
+            </div>
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              formControlName="password"
+              class="form-control"
+              placeholder="Enter your passsword"
+            />
+            <div style="margin-bottom: 3px; margin-top: 10px">
+              <span class="hint"
+                >Minimum 10 characters with at least 1 letter and 1 number
+              </span>
+            </div>
+            <div
+              class="text-danger"
+              *ngIf="
+                registerIsSubmitted &&
+                (registerForm.get('password').hasError('required') ||
+                  registerForm.get('password').hasError('hasNumber') || registerForm.get('password').hasError('hasLater') || registerForm.get('password').hasError('minlength')) 
+              "
+            >
+              <small>Please enter valid password*</small>
+            </div>
+          </div>
+
+          <!-- <div class="form-group mb-4">
+            <label for="password">Confirm Password</label>
+            <input
+              type="password"
+              formControlName="confirmPassword"
+              class="form-control"
+              placeholder="Enter your passsword"
+            />
+            <div
+              class="text-danger"
+              *ngIf="registerIsSubmitted && registerForm.hasError('notSame')"
+            >
+              <small>Password must match*</small>
+            </div>
+          </div> -->
+
+          <button class="login-btn" (click)="registerUser()">
+            Register Now
+          </button>
+          <div style="margin-top: 10px">
+            <p>
+              By clicking the REGISTER NOW button you agree to our
+              <a href="">Term & Conditions.</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-sm-2"></div>
+  </div>
+  <div class="row row-padding" *ngIf="!newCustomer">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+      <div>
+        <form [formGroup]="loginForm" *ngIf="!forgotPassword">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              formControlName="email"
+              placeholder="Enter Your Email"
+            />
+            <div
+              class="text-danger"
+              *ngIf="
+                loginIsSubmitted &&
+                (loginForm.get('email').hasError('required') ||
+                  loginForm.get('email').hasError('email'))
+              "
+            >
+              <small>Please enter valid email address*</small>
+            </div>
+          </div>
+          <div class="form-group mb-4">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              formControlName="password"
+              class="form-control"
+              placeholder="Enter your passsword"
+            />
+            <div
+              class="text-danger"
+              *ngIf="
+                loginIsSubmitted && loginForm.get('password').hasError('required')
+              "
+            >
+              <small>Please enter valid password*</small>
+            </div>
+          </div>
+         
+  
+          <button class="login-btn" (click)="logIn()">Login</button>
+          <button class="forgot-btn" (click)="forgotPassword=true">Forgot password?</button>
+        </form>
+
+
+        <form [formGroup]="resetPasswordForm"  *ngIf="forgotPassword" style="margin-top: 50px;">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              formControlName="email"
+            class="form-control"
+              placeholder="Enter Your Email"
+            />
+            <div
+              class="text-danger"
+              *ngIf="
+              resetFormSubmit &&
+              (resetPasswordForm.get('email').hasError('required') ||
+              resetPasswordForm.get('email').hasError('email'))
+            "
+            >
+              <small>Please enter valid email address*</small>
+            </div>
+          </div>
+         
+          <button class="login-btn" (click)="sentResetLink()" >Send reset url</button>
+          <button class="forgot-btn"   (click)="forgotPassword=false">Go To Login</button>
+        </form>
+
+      </div>
+     
+    </div>
+    <div class="col-sm-2"></div>
+  </div>
+  
+</div>
+<div [class.loader-hidden]="!show">
+  <div class="loader-overlay">
+      <div>
+          <div *ngIf="show" class="loader"></div>
+      </div>
+  </div>
+</div>

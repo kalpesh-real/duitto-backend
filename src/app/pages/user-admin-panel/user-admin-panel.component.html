@@ -1,0 +1,71 @@
+<app-header-component></app-header-component>
+
+<div class="content">
+  <div class="main main-container">
+    <div class="text-center logo">
+      <img src="/assets/img/order.png" />
+    </div>
+    <div class="header">Order History</div>
+    <div class="row row-padding">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8">
+         <div class="card">
+            <div class="card-header">
+
+            </div>
+            <div class="card-body">
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+                    <ng-container matColumnDef="Order Number">
+                      <th mat-header-cell *matHeaderCellDef> Order Number </th>
+                      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                    </ng-container>
+
+
+
+
+
+                    <ng-container matColumnDef="Quantity">
+                        <th mat-header-cell *matHeaderCellDef> Quantity </th>
+                        <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+                      </ng-container>
+
+                    <ng-container matColumnDef="Summary">
+                      <th mat-header-cell *matHeaderCellDef> Summary </th>
+                      <td mat-cell *matCellDef="let element"> ---- </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Order Date">
+                        <th mat-header-cell *matHeaderCellDef> Order Date </th>
+                        <td mat-cell *matCellDef="let element"> {{formatToDate(element.isCreatedOn)}} </td>
+                      </ng-container>
+
+                      <ng-container matColumnDef="Status">
+                        <th mat-header-cell *matHeaderCellDef> Delivery Status </th>
+                        <td mat-cell *matCellDef="let element"> {{element.consignmentStatus}} </td>
+                      </ng-container>
+
+                    <ng-container matColumnDef="Action">
+                      <th mat-header-cell *matHeaderCellDef> Action </th>
+                      <td mat-cell *matCellDef="let element"> <span class="span-text" (click)="goNextStep(element);">View</span> </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                  </table>
+            </div>
+         </div>
+
+      </div>
+      <div class="col-sm-2"></div>
+    </div>
+  </div>
+</div>
+<div [class.loader-hidden]="!show">
+    <div class="loader-overlay">
+        <div>
+            <div *ngIf="show" class="loader"></div>
+        </div>
+    </div>
+  </div>

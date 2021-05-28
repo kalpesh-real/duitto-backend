@@ -1,0 +1,706 @@
+<app-header-component></app-header-component>
+
+<div class="content">
+  <div class="main">
+    <div class="steppr-section">
+      <mat-horizontal-stepper #stepper labelPosition="bottom">
+        
+        <mat-step [completed]="orderApproved">
+          <!-- Unaproved page-->
+          <ng-template matStepLabel>Unaproved</ng-template>
+
+          <ng-template matStepperIcon="edit">
+            <mat-icon>play_for_work</mat-icon>
+          </ng-template>
+        
+          <ng-template matStepperIcon="done">
+            <mat-icon>play_for_work</mat-icon>
+          </ng-template>
+        
+          <!-- Custom icon with a context variable. -->
+          <ng-template matStepperIcon="number" let-index="index">
+            <mat-icon></mat-icon>
+          </ng-template>
+
+
+
+
+          <div class="row" *ngIf="true">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+              <form [formGroup]="orderForm">
+                <div class="form-group center-section section-margin">
+                  <h2>Product URL</h2>
+                  <input
+                    class="form-control center-section input-custome"
+                    formControlName="productUrl"
+                  />
+                  <div
+                    class="text-danger"
+                    *ngIf="
+                      orderSubmitted &&
+                      orderForm.get('productUrl').hasError('required')
+                    "
+                  >
+                    <small>Please enter product url*</small>
+                  </div>
+                </div>
+                <DIV>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group right">
+                        <h2>Shiping Address</h2>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group right">
+                        <label for="password">First name</label>
+                        <input
+                          type="text"
+                          name="firstname"
+                          formControlName="firstName"
+                          class="form-control"
+                          placeholder="Enter your first name"
+                        />
+                        <div
+                          class="text-danger"
+                          *ngIf="
+                            orderSubmitted &&
+                            orderForm.get('firstName').hasError('required')
+                          "
+                        >
+                          <small>Please enter first name*</small>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="lastname">Last name</label>
+                        <input
+                          type="text"
+                          name="lastname"
+                          formControlName="lastName"
+                          class="form-control"
+                          placeholder="Enter Your last name"
+                        />
+                        <div
+                          class="text-danger"
+                          *ngIf="
+                            orderSubmitted &&
+                            orderForm.get('lastName').hasError('required')
+                          "
+                        >
+                          <small>Please enter last name*</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group right">
+                        <label for="title">Title</label>
+                        <select
+                          class="form-control"
+                          formControlName="nameTitle"
+                        >
+                          <option value="mr">Mr</option>
+                          <option value="mrs">Mrs</option>
+                        </select>
+                        <div
+                          class="text-danger"
+                          *ngIf="
+                            orderSubmitted &&
+                            orderForm.get('nameTitle').hasError('required')
+                          "
+                        >
+                          <small>Please select title*</small>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Country name</label>
+                        <select class="form-control" formControlName="country">
+                          <option value="in">Ind</option>
+                          <option value="uk">UK</option>
+                        </select>
+
+                        <div
+                          class="text-danger"
+                          *ngIf="
+                            orderSubmitted &&
+                            orderForm.get('country').hasError('required')
+                          "
+                        >
+                          <small>Please select country*</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </DIV>
+
+                <DIV class="section-margin">
+            
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group right">
+                        <label for="company">Company (Optional)</label>
+                        <input
+                          type="text"
+                          name="company"
+                          formControlName="companyName"
+                          class="form-control"
+                          placeholder="Enter your Company"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Address Line 1</label>
+                        <input
+                          type="text"
+                          formControlName="addressLine1"
+                          class="form-control"
+                          placeholder="Enter your Address"
+                        />
+                        <div
+                          class="text-danger"
+                          *ngIf="
+                            orderSubmitted &&
+                            orderForm.get('addressLine1').hasError('required')
+                          "
+                        >
+                          <small>Please enter address*</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group right">
+                        <label>Address Line 2 (Optional)</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="addressLine2"
+                          placeholder="Enter your Address"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Address 3 (Optional)</label>
+                        <input
+                          type="text"
+                          formControlName="addressLine3"
+                          class="form-control"
+                          placeholder="Enter your Address"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group right">
+                        <label>Town / City </label>
+                        <input
+                          type="text"
+                          formControlName="city"
+                          class="form-control"
+                          placeholder="Enter your town"
+                        />
+                        <div
+                          class="text-danger"
+                          *ngIf="
+                            orderSubmitted &&
+                            orderForm.get('city').hasError('required')
+                          "
+                        >
+                          <small>Please enter town / city*</small>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Postal Code</label>
+                        <input
+                          type="text"
+                          formControlName="postalCode"
+                          class="form-control"
+                          placeholder="Enter your postal code"
+                        />
+                        <div
+                          class="text-danger"
+                          *ngIf="
+                            orderSubmitted &&
+                            (orderForm.get('postalCode').hasError('required') ||
+                              orderForm.get('postalCode').hasError('pattern'))
+                          "
+                        >
+                          <small>Please enter valid postal code*</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </DIV>
+
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group right">
+                      <h2 style="text-align: left">Currency</h2>
+                      <select class="form-control" formControlName="currency">
+                        <option value="usd">USD</option>
+                      </select>
+                      <div
+                        class="text-danger"
+                        *ngIf="
+                          orderSubmitted &&
+                          orderForm.get('currency').hasError('required')
+                        "
+                      >
+                        <small>Please select currency*</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <h2 style="text-align: left">Quantity</h2>
+                      <input
+                        type="number"
+                        formControlName="quantity"
+                        class="form-control"
+                        placeholder="Enter Quantity"
+                      />
+                      <div
+                        class="text-danger"
+                        *ngIf="
+                          orderSubmitted &&
+                          orderForm.get('quantity').hasError('required')
+                        "
+                      >
+                        <small>Please eneter quantity*</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="right block-status">
+                      <div style="margin-bottom: 10px">
+                        <label class="t">Status</label>
+                        <span class="a" style="color: #2c71d9">Unapproved</span>
+                      </div>
+                      <hr style="margin-bottom: 15px" />
+                      <!-- <div>
+                        <label class="t">Order Number</label
+                        ><span class="a">#1314151</span>
+                      </div> -->
+                    </div>
+                    <div style="clear: both">
+                      <button class="login-btn right" (click)="placeOrder()">
+                        Order
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="col-sm-3"></div>
+          </div>
+        </mat-step>
+        <mat-step [completed]="goForCheckout">
+          <!-- Aproved page-->
+          <ng-template matStepLabel>Aproval</ng-template>
+
+         
+          <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+              <form>
+                <DIV class="section-margin">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group right">
+                        <h2>Order Information</h2>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group right">
+                        <label>Address</label>
+                        <span class="form-control">
+                          C-401, pimpri-gurav, pune, 411061</span
+                        >
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Quantity</label>
+                        <span class="form-control">1</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group right">
+                        <label>Country</label>
+                        <span class="form-control"> UK</span>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Currency</label>
+                        <span class="form-control">USD</span>
+                      </div>
+                    </div>
+                  </div>
+                </DIV>
+
+                <DIV>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div
+                        class="right block-status"
+                        style="width: 350px; height: 138px"
+                      >
+                        <div style="margin-bottom: 10px">
+                          <label class="t">Status</label>
+                          <span class="a" style="color: #02b654">Approved</span>
+                        </div>
+                        <hr style="margin-bottom: 15px" />
+                        <div>
+                          <label class="t">Order Number</label
+                          ><span class="a">#1314151</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </DIV>
+
+                <DIV class="section-margin">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div
+                        class="right block-status"
+                        style="width: 350px; height: 210px"
+                      >
+                        <div style="margin-bottom: 10px">
+                          <label class="t">Price</label>
+                          <span class="a">$500</span>
+                        </div>
+                        <hr style="margin-bottom: 15px" />
+                        <div style="margin-bottom: 10px">
+                          <label class="t">Delivery Cost</label
+                          ><span class="a">$200</span>
+                        </div>
+                        <hr style="margin-bottom: 10px" />
+
+                        <div>
+                          <label class="t-total">Total</label
+                          ><span class="t-total" style="float: right"
+                            >$700</span
+                          >
+                        </div>
+                      </div>
+                      <div style="clear: both">
+                        <button class="login-btn right" (click)="goToNext('goForCheckout')">Checkout</button>
+                        <button class="forgot-btn right" (click)="goToNext('cancelCheckout')">Cancel</button>
+                      </div>
+                    </div>
+                  </div>
+                </DIV>
+              </form>
+            </div>
+            <div class="col-sm-3"></div>
+          </div>
+        </mat-step>
+        <mat-step >
+          <!-- Checkout page-->
+          <ng-template matStepLabel>Checkout</ng-template>
+          <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+              <form>
+                <DIV class="section-margin">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group right">
+                        <h2>Order Information</h2>
+                      </div>
+                    </div>
+                    <div class="col-sm-6"></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div
+                        class="right block-status"
+                        style="width: 350px; height: 210px"
+                      >
+                        <div style="margin-bottom: 10px">
+                          <label class="t">Price</label>
+                          <span class="a">$500</span>
+                        </div>
+                        <hr style="margin-bottom: 15px" />
+                        <div style="margin-bottom: 10px">
+                          <label class="t">Delivery Cost</label
+                          ><span class="a">$200</span>
+                        </div>
+                        <hr style="margin-bottom: 10px" />
+
+                        <div>
+                          <label class="t-total">Total</label
+                          ><span class="t-total" style="float: right"
+                            >$700</span
+                          >
+                        </div>
+                      </div>
+
+                      <div style="clear: both">
+                        <button class="login-btn right">$700 Pay</button>
+                        <button class="forgot-btn right">Cancel</button>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Shipping Address</label>
+                        <span class="form-control white-background">
+                          C-401, pimpri-gurav, pune, 411061</span
+                        >
+                      </div>
+
+                      <div class="form-group">
+                        <label>Country</label>
+                        <span class="form-control white-background"> UK</span>
+                      </div>
+                      <div class="form-group">
+                        <label>Quantity</label>
+                        <span class="form-control white-background">1</span>
+                      </div>
+                      <div class="form-group">
+                        <label>Currency</label>
+                        <span class="form-control white-background">USD</span>
+                      </div>
+                      <div class="form-group">
+                        <label>Status</label>
+                        <span class="form-control white-background"
+                          >Approved</span
+                        >
+                      </div>
+
+                      <div class="form-group">
+                        <label>Order Number</label
+                        ><span class="form-control white-background"
+                          >#1314151</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </DIV>
+              </form>
+            </div>
+            <div class="col-sm-3"></div>
+          </div>
+        </mat-step>
+
+        <mat-step> <ng-template matStepLabel>Confirmation</ng-template>
+        
+        
+          <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+              <form>
+                <DIV class="section-margin">
+                
+                  <div class="row">
+                    <div class="col-sm-10">
+                      <div class="">
+                        <h2>Order Confirmation</h2>
+                        <span>Your order was placed! Order Number #{{orderId}}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="form-group center-section section-margin">
+                      <h2>Product URL</h2>
+                      <input
+                        class="form-control center-section input-custome"
+                        
+                      />
+                      
+                    </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div
+                      class="right block-status"
+                      style="width: 350px; height: max-content; "
+                    >
+                      <div style="margin-bottom: 10px">
+                        <label class="t">Address</label>
+                      </div>
+                      <div style="margin-bottom: 10px">
+                        <span>KDAJAD</span>>
+                      </div>
+                     
+                      <div>
+                        <label class="t">Country</label>
+                      </div>
+                      <div style="margin-bottom: 10px">
+                        <span>KDAJAD</span>>
+                      </div>
+                    </div>
+                  </div>
+              
+                  <div class="col-sm-6">
+                    <div
+                    class="right block-status"
+                    style="width: 350px; height: max-content; "
+                  >
+                    <div style="margin-bottom: 10px">
+                      <label class="t">Quantity</label>
+                    </div>
+                    <div style="margin-bottom: 10px">
+                      <span>KDAJAD</span>>
+                    </div>
+                   
+                    <div>
+                      <label class="t">Currency</label>
+                    </div>
+                    <div style="margin-bottom: 10px">
+                      <span>KDAJAD</span>>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+                </DIV>
+
+                <DIV>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div
+                        class="right block-status"
+                        style="width: 350px; height: 210px"
+                      >
+                        <div style="margin-bottom: 10px">
+                          <label class="t">Status</label>
+                          <span class="a">$500</span>
+                        </div>
+                        <hr style="margin-bottom: 15px" />
+                        <div style="margin-bottom: 10px">
+                          <label class="t">Order Number</label
+                          ><span class="a">$200</span>
+                        </div>
+                        <hr style="margin-bottom: 10px" />
+
+                        <div>
+                          <label class="t">Order Date</label
+                          ><span class="a" style="float: right"
+                            >$700</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div
+                        class="right block-status"
+                        style="width: 350px; height: 210px"
+                      >
+                        <div style="margin-bottom: 10px">
+                          <label class="t">Price</label>
+                          <span class="a">$500</span>
+                        </div>
+                        <hr style="margin-bottom: 15px" />
+                        <div style="margin-bottom: 10px">
+                          <label class="t">Delivery Cost</label
+                          ><span class="a">$200</span>
+                        </div>
+                        <hr style="margin-bottom: 10px" />
+
+                        <div>
+                          <label class="t">Total</label
+                          ><span class="a" style="float: right"
+                            >$700</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </DIV>
+                <DIV class="">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group center-section">
+                      <h2>Billing Address</h2>
+                    </div>
+                    <div
+                        class="right block-status"
+                        style="width: 350px; height: max-content"
+                      >
+                        <div style="margin-bottom: 10px">
+                          <label class="t">Billing Address</label>
+                        </div>
+                        <div style="margin-bottom: 10px">
+                          <span>KDAJAD</span>>
+                        </div>
+                       
+
+                        
+                      </div>
+                      
+                    </div>
+                  </div>
+                </DIV>
+                <DIV class="section-margin">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group center-section ">
+                      <h2>Delivery Details</h2>
+                    </div>
+                    <div
+                        class="right block-status"
+                        style="width: 350px; height: 210px"
+                      >
+                        <div style="margin-bottom: 10px">
+                          <label class="t">Price</label>
+                          <span class="a">$500</span>
+                        </div>
+                        <hr style="margin-bottom: 15px" />
+                        <div style="margin-bottom: 10px">
+                          <label class="t">Delivery Cost</label
+                          ><span class="a">$200</span>
+                        </div>
+                        <hr style="margin-bottom: 10px" />
+
+                        <div>
+                          <label class="t-total">Total</label
+                          ><span class="t-total" style="float: right"
+                            >$700</span
+                          >
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </DIV>
+              </form>
+            </div>
+            <div class="col-sm-3"></div>
+          </div>
+        
+        </mat-step>
+      </mat-horizontal-stepper>
+    </div>
+  </div>
+</div>
+<div [class.loader-hidden]="!show">
+  <div class="loader-overlay">
+      <div>
+          <div *ngIf="show" class="loader"></div>
+      </div>
+  </div>
+</div>

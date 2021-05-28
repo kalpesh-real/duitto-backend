@@ -1,0 +1,122 @@
+.content {
+  padding: auto;
+  margin: auto;
+  text-align: center;
+  margin-top: 5%;
+}
+.main {
+  padding: 20px 30px 20px 30px;
+}
+.search-order-div {
+  padding: 6px;
+  text-align: center;
+  width: 100%;
+  text-align: center;
+}
+
+
+
+.demo-vedio-div {
+  width: 100%;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.demo-vedio{
+  margin-top: 30px;
+  width: 717px;
+  filter: drop-shadow(0px 10px 40px rgba(0, 0, 0, 0.1));
+  border-radius: 20px;
+}
+.demo-vedio-div span {
+  font-family: Product Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 30px;
+  padding: 2px;
+  text-align: center;
+  color: #222222;
+  opacity: 0.6;
+  margin-bottom: 30px;
+}
+.list-section {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+}
+.list-section span {
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: underline;
+}
+.list-div {
+  width: 316px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  text-align: left;
+}
+.logo img {
+  width: 30px;
+  height: 30px;
+}
+.logo {
+  margin-bottom: 10px;
+}
+.subinfo {
+  font-family: Product Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 30px;
+
+  text-align: center;
+
+  color: #212738;
+
+  opacity: 0.6;
+  margin-bottom: 50px;
+}
+
+.producturl {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.producturl input[type="text"] {
+  background: #ffffff;
+  border: 1px solid #f0f0f0;
+  box-shadow: 0px 10px 24px rgba(167, 167, 167, 0.1);
+  border-radius: 4px;
+  width: 600px;
+  color: #222222;
+  font-family: Google Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 23px;
+  height: auto;
+}
+
+/* Style the submit button */
+.producturl button {
+  background: #02b654;
+  border-radius: 0px 4px 4px 0px;
+  padding: 20px 32px;
+  border: none;
+
+  font-family: Product Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 30px;
+  /* identical to box height, or 150% */
+
+  text-align: center;
+
+  color: #ffffff;
+}

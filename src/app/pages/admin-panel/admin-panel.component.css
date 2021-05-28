@@ -1,0 +1,53 @@
+.content {
+    padding: auto;
+    margin: auto;
+    margin-top: 5%;
+  }
+  .main {
+    padding: 20px 30px 20px 30px;
+  }
+  
+  .logo img {
+    width: 30px;
+    height: 30px;
+  }
+  .logo {
+    margin-bottom: 10px;
+  }
+  .header {
+    font-family: Product Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 50px;
+    text-align: center;
+    color: #222222;
+    margin-bottom: 50px;
+  }
+  table {
+    width: 100%;
+    border: none;
+    box-shadow: none !important;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+  .card {
+    background: #ffffff;
+    border: 1px solid #e6ebf1;
+    border-radius: 20px;
+  }
+  .card-body {
+    padding: 0px;
+   
+  
+  }
+  .card-header {
+    height: 50px;
+    background: #e6ebf1;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+  }
+  .span-text{
+      text-decoration: underline;
+      cursor: pointer;
+  }
