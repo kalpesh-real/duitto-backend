@@ -1,0 +1,21 @@
+footer {
+  border-radius: 0px;
+  padding: 52px 205px;
+  margin-top: 200px;
+  border-top: 1px solid #c4c4c4;
+  height: 105px;
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+footer span {
+  font-family: Product Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #222222;
+  opacity: 0.5;
+}

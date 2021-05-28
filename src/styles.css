@@ -1,0 +1,127 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: #ffffff;
+}
+
+.main-container {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.steppr-section .mat-step-icon {
+  width: 48px;
+  height: 48px;
+}
+
+.steppr-section .mat-step-icon-selected {
+  background: rgba(2, 182, 84, 0.2);
+  border: 1px solid #02b654;
+  box-sizing: border-box;
+  color: #02b654;
+}
+
+.steppr-section .mat-step-icon-state-edit {
+  background: rgba(2, 182, 84, 0.2);
+  border: 1px solid #02b654;
+  box-sizing: border-box;
+  color: #02b654;
+}
+
+.steppr-section .mat-step-header .mat-step-label.mat-step-label-active {
+  color: #02b654;
+}
+
+.steppr-section .mat-step-icon .mat-icon {
+  font-size: 31px;
+  height: 31px;
+  width: 31px;
+}
+
+/*   Loader css */
+
+.loader-hidden {
+  visibility: hidden;
+}
+.loader-overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  z-index: 500000;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column wrap;
+  -moz-flex-flow: column wrap;
+  flex-flow: column wrap;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  justify-content: center;
+  text-align: -webkit-center;
+}
+
+.loader {
+  border: 11px solid #1e1e2f;
+  border-radius: 50%;
+  border-top: 11px solid purple;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 0.5s linear infinite;
+  /* Safari */
+  animation: spin 0.5s linear infinite;
+  margin: auto;
+}
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/**************/
+
+.mat-header-cell {
+  font-family: Product Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 160%;
+  /* identical to box height, or 26px */
+
+  color: #222222;
+}
+.mat-cell {
+  font-family: Product Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 160%;
+  color: #222222;
+}
+.mat-header-row{
+  background: #F7FAFC;
+}

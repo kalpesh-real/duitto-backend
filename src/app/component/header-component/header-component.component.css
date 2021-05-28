@@ -1,0 +1,65 @@
+nav {
+  padding: 25px;
+}
+
+nav .btn-c {
+  border: 1px solid #222222;
+  border-radius: 4px;
+  background: center;
+  padding: 16px 25px 16px 25px;
+  float: right;
+  margin-right: 10%;
+  min-width: 160px;
+}
+
+.common-main-margin {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.logo-section {
+  float: left;
+  margin-left: 10%;
+  padding: 16px 25px 16px 25px;
+}
+
+.logo-section img {
+  padding: 10px 4px 10px 4px;
+  background: #222222;
+  border-radius: 8px;
+  margin-right: 10px;
+}
+
+.logo-section span {
+  font-family: Termina;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+
+  color: #222222;
+}
+.btn-list button{
+  padding: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  nav .c-btn{
+    padding: 25px;
+  }
+  .common-main-margin {
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+  .logo-section {
+    margin-left: 2%;
+    padding: 5px 10px 5px 10px;
+  }
+  nav button {
+    padding: 5px 10px 5px 10px;
+    margin-right: 2%;
+  }
+  .logo-section img {
+    padding: 2px 5px 2px 5px;
+  }
+}
