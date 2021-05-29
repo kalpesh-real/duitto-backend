@@ -14,11 +14,11 @@ export class UserLoginRegistrationComponent implements OnInit {
 
   registerForm: FormGroup;
   loginForm: FormGroup;
-  resetPasswordForm:FormGroup;
+  
   registerIsSubmitted = false;
   loginIsSubmitted = false;
   newCustomer = true;
-  forgotPassword = false;
+  
   show=false;
   constructor(private fb: FormBuilder, private service: ApiService, public sessionService: SessionService, public router: Router, public dialogService: Dialog) {
     this.initFormGrup();
@@ -29,33 +29,22 @@ export class UserLoginRegistrationComponent implements OnInit {
   initFormGrup() {
     this.registerForm = this.fb.group({
       // newregister: ['true'],
-      nameTitle: ['mr', Validators.required],
+   
       firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      companyName: ['', Validators.required],
-      phoneNumber: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
-      //  mobileNumber: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
-      email: ['', [Validators.required, Validators.email]],
-      //  password: ['', [Validators.required, Validators.minLength(10), Validators.pattern("^[0-9a-zA-Z]{10,}$")]],
-      password: [ null, Validators.compose([
-        Validators.required,
-        this.patternValidator(/\d/, { hasNumber: true }),
-        this.patternValidator(/[A-Za-z]/, { hasLater: true }),
-        Validators.minLength(10)])
-     ],
      
-      // confirmPassword: ['', [Validators.required, Validators.minLength(10), Validators.pattern("^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{10,}$")]],
+      email: ['', [Validators.required, Validators.email]]
+     
+     
+     
     });
 
 
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]]
+     
     });
 
-    this.resetPasswordForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]]
-    });
+   
 
   }
   registerUser() {
@@ -102,11 +91,7 @@ export class UserLoginRegistrationComponent implements OnInit {
     }
   }
 
-  checkPasswords(group: FormGroup) { // here we have the 'passwords' group
-    const password = group.get('password').value;
-    const confirmPassword = group.get('confirmPassword').value;
-    return password === confirmPassword ? null : { notSame: true }
-  }
+
 
   changeTab(action) {
     if (action == "new") {
@@ -131,25 +116,5 @@ export class UserLoginRegistrationComponent implements OnInit {
       return valid ? null : error;
     };
   }
-  resetEmail='';
-  resetFormSubmit=false;
-  sentResetLink(){
-    this.resetFormSubmit=true;
 
-    if(!this.resetPasswordForm.invalid){
-     this.show=true;
-      this.service.apiPOST("auth/forgotpassword",this.resetPasswordForm.value).subscribe((result:any)=>{
-        this.show=false;
-        if(result.status==1){
-          this.dialogService.showAlert("success", "Success", result.mesage);
-        }
-        else{
-          this.dialogService.showAlert("error", "Error", result.mesage);
-        }
-      },(error:any)=>{
-        this.show=false;
-        this.dialogService.showAlert("error", "Error", "Problem with sending email");
-      })
-    }
-  }
 }
