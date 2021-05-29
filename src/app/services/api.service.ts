@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ApiService {
-  serverUrl="http://localhost:8080/api/";
+  serverUrl="http://duitto.patilkalpesh.com/api/";
   productUrl="";
   orderDetails:any;
   constructor(public http: HttpClient) { }
