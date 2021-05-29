@@ -75,9 +75,10 @@ export class UserLoginRegistrationComponent implements OnInit {
       this.service.apiPOST("signin", this.loginForm.value).subscribe((result: any) => {
         this.show=false;
         if (result.status == true) {
-          this.sessionService.set("user", result.data);
-          let tokenStr = 'Bearer ' + result.token;
-          localStorage.setItem('token', tokenStr);
+          this.dialogService.showAlert("success", "Success!", "One time login  link sent to your registered email.");
+         // this.sessionService.set("user", result.data);
+          //let tokenStr = 'Bearer ' + result.token;
+          //localStorage.setItem('token', tokenStr);
           this.router.navigate(['/']);
         }
         else {

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminPanelComponent } from './pages/admin-panel/admin-panel.component';
 import { AdminUpdateOrderComponent } from './pages/admin-update-order/admin-update-order.component';
 import { ConfirmEmailComponent } from './pages/confirm-email/confirm-email.component';
+import { ConfirmLoginComponent } from './pages/confirm-login/confirm-login.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { OrderPageComponent } from './pages/order-page/order-page.component';
 import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path:'user/panel',component:UserAdminPanelComponent},
   {path:'admin/panel',component:AdminPanelComponent},
   {path:'admin/updateorder',component:AdminUpdateOrderComponent},
+  {path:'confirmLogin/:id',component:ConfirmLoginComponent},
   {path:'**',redirectTo:''}
 ];
 

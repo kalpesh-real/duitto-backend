@@ -25,6 +25,7 @@ import { AdminPanelComponent } from './pages/admin-panel/admin-panel.component';
 import { AdminUpdateOrderComponent } from './pages/admin-update-order/admin-update-order.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { ConfirmLoginComponent } from './pages/confirm-login/confirm-login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +38,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     ResetPasswordComponent,
     UserAdminPanelComponent,
     AdminPanelComponent,
-    AdminUpdateOrderComponent
+    AdminUpdateOrderComponent,
+    ConfirmLoginComponent
   ],
   imports: [
     BrowserModule,
