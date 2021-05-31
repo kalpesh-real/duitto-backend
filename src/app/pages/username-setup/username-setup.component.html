@@ -13,7 +13,13 @@
         <div>
           <!-- Resgister Section -->
           <form>
-        
+
+            <div
+            class="text-danger"
+            *ngIf="usernameError"
+          >
+            <small>Username already registered.Please select another*</small>
+          </div>
             <div class="form-group mb-4">
               <label for="userName">Username</label>
               <input

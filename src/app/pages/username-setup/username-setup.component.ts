@@ -17,11 +17,13 @@ export class UsernameSetupComponent implements OnInit {
   userNameSuggestion;
   userNameSuggestionLabel =false;
   skipClicked=false;
+  usernameError=false;
   constructor(private service: ApiService, public sessionService: SessionService, public router: Router, public dialogService: Dialog) { }
 
   ngOnInit(): void {
   }
   saveUsername(){
+    if(this.usernameError==false){
     this.customerId = this.sessionService.getUserProperty('id');
     let data = this.sessionService.get("user");
     data['userName'] = this.userName;
@@ -53,7 +55,7 @@ export class UsernameSetupComponent implements OnInit {
      }
 
     })
-
+  }
   }
   skipForUsername(){
     this.skipClicked=true;
@@ -78,6 +80,7 @@ if(this.userName !=""){
         else{
          this.userNameSuggestionLabel = true;
          this.userNameSuggestion = this.userName+"-"+this.randomUserName();
+         this.usernameError=true;
         }
         }else{
         if (result.status == false && result.uname == "NA") {
@@ -108,6 +111,7 @@ if(this.userName !=""){
   }
   }
   randomUserName(){
+    this.usernameError=false;
     var text = "";
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   
@@ -117,6 +121,7 @@ if(this.userName !=""){
     return text;
   }
 setUnameFromSuggestion(){
+  this.usernameError=false;
   this.userName = this.userNameSuggestion;
   this.userNameSuggestionLabel = false;
 }
