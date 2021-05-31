@@ -67,7 +67,7 @@ export class UsernameSetupComponent implements OnInit {
     let data ={
       "uname":this.userName
     }
-
+if(this.userName !=""){
     this.service.apiPOST("userNameVerification", data).subscribe((result: any) => {
       this.show=false;
       if(this.skipClicked!=true){
@@ -103,7 +103,9 @@ export class UsernameSetupComponent implements OnInit {
      }
 
     })
-
+  }else{
+    this.userNameSuggestionLabel = false;
+  }
   }
   randomUserName(){
     var text = "";

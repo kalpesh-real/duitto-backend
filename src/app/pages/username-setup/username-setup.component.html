@@ -23,7 +23,8 @@
                 [(ngModel)]="userName"
                 placeholder="Enter your username"
                 required
-                (blur)="onBlurEvent()"
+                (ngModelChange)="onBlurEvent()"
+                autocomplete="off"
               />
               
             </div>
