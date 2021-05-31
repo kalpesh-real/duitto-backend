@@ -1,0 +1,62 @@
+
+<div style="text-align: center; padding: 12px;clear: both;">
+    <h1 mat-dialog-title class="title-modal">Set Username</h1>
+  </div>
+  
+  <div class="main">
+   
+  
+    <div class="row row-padding">
+    
+  
+      <div class="col-sm-12">
+        <div>
+          <!-- Resgister Section -->
+          <form>
+        
+            <div class="form-group mb-4">
+              <label for="userName">Username</label>
+              <input
+                type="text"
+                name="userName"
+                class="form-control"
+                [(ngModel)]="userName"
+                placeholder="Enter your username"
+                required
+                (blur)="onBlurEvent()"
+              />
+              
+            </div>
+            <div>
+                
+                  <button class="uname-suggest-btn" mat-button *ngIf="userNameSuggestionLabel" (click)="setUnameFromSuggestion()">
+                    <mat-icon>done</mat-icon>
+                   {{userNameSuggestion}}
+                </button>
+            </div>
+            
+            <button class="login-btn" (click)="saveUsername()">
+              Continue
+            </button>
+          
+            <div style="margin-top: 20px">
+                <button class="skip-btn" style="margin-top: 10px" (click)="skipForUsername()">
+                    Skip
+                  </button>
+            </div>
+          </form>
+        </div>
+      </div>
+     
+    </div>
+    
+    
+  </div>
+  <div [class.loader-hidden]="!show">
+    <div class="loader-overlay">
+        <div>
+            <div *ngIf="show" class="loader"></div>
+        </div>
+    </div>
+  </div>
+  

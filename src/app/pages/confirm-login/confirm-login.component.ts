@@ -31,7 +31,7 @@ export class ConfirmLoginComponent implements OnInit {
       if(result.status==true){
         this.show=false;
          this.sessionService.set("user", result.data);
-         this.router.navigate(['user/admin']);
+         this.router.navigate(['/']);
          //let tokenStr = 'Bearer ' + result.token;
         // localStorage.setItem('token', tokenStr);
         this.dialogService.showAlert("success", "Success!", "Login Successfully.");

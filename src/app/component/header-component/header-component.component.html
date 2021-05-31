@@ -5,10 +5,10 @@
   </div>
   <button *ngIf="sessionService.checkUserSection()!=true" [routerLink]="['/login']" class="btn-c">Sign in or Register</button>
 
-   <div  *ngIf="sessionService.checkUserSection() && sessionService.getUserProperty('userRole')=='USER' "  ngbDropdown  >
-    <button ngbDropdownToggle  class="btn-c">{{sessionService.getUserProperty("firstName")}}</button>
+   <div  *ngIf="sessionService.checkUserSection() && sessionService.getUserProperty('userRole')=='USER'   && sessionService.newCustomer!=true"  ngbDropdown  >
+    <button ngbDropdownToggle  class="btn-c">{{sessionService.getUserProperty("userName")}}</button>
     <div ngbDropdownMenu class="btn-list">
-      <button ngbDropdownItem  [routerLink]="['/user/panel']">My orders</button>
+      <button ngbDropdownItem  [routerLink]="['/user/panel']">Settings</button>
       <button ngbDropdownItem (click)="logout()">Sign out</button>
      
     </div>
@@ -16,7 +16,7 @@
 
 
   <div  *ngIf="sessionService.checkUserSection() && sessionService.getUserProperty('userRole')=='ADMIN' "  ngbDropdown  >
-    <button ngbDropdownToggle  class="btn-c">{{sessionService.getUserProperty("firstName")}}</button>
+    <button ngbDropdownToggle  class="btn-c">{{sessionService.getUserProperty("userName")}}</button>
     <div ngbDropdownMenu class="btn-list">
       <button ngbDropdownItem  [routerLink]="['/admin/panel']">Cutomer orders</button>
       <button ngbDropdownItem (click)="logout()">Sign out</button>

@@ -12,6 +12,10 @@
     <div class="subinfo">
       Welcome To Duitto QR Application.
     </div>
+    
+    <app-username-setup *ngIf="sessionService.newCustomer"></app-username-setup>
+
+    
    
   </div>
 </div> 

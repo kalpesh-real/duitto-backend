@@ -10,8 +10,16 @@ import { SessionService } from 'src/app/services/session.service';
   styleUrls: ['./header-component.component.css']
 })
 export class HeaderComponentComponent implements OnInit {
- 
-  constructor(public sessionService:SessionService, public dialog:MatDialog,public router:Router) { }
+
+  constructor(public sessionService:SessionService, public dialog:MatDialog,public router:Router) { 
+    if(sessionService.getUserProperty("userName") == undefined || sessionService.getUserProperty("userName") == "" ||sessionService.getUserProperty("userName") == null){
+      this.sessionService.newCustomer =true;  
+    }
+    else{
+      
+    }
+
+  }
 
   ngOnInit(): void {
   }

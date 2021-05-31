@@ -26,6 +26,10 @@ import { AdminUpdateOrderComponent } from './pages/admin-update-order/admin-upda
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ConfirmLoginComponent } from './pages/confirm-login/confirm-login.component';
+import { UsernameSetupComponent } from './pages/username-setup/username-setup.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +43,8 @@ import { ConfirmLoginComponent } from './pages/confirm-login/confirm-login.compo
     UserAdminPanelComponent,
     AdminPanelComponent,
     AdminUpdateOrderComponent,
-    ConfirmLoginComponent
+    ConfirmLoginComponent,
+    UsernameSetupComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +57,8 @@ import { ConfirmLoginComponent } from './pages/confirm-login/confirm-login.compo
     MatStepperModule,
     MatIconModule,
     MatMenuModule,
+    MatCardModule,
+    MatFormFieldModule,
     NgbModule,
     MatTableModule,
     MatDatepickerModule,
