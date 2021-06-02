@@ -29,6 +29,7 @@ import { ConfirmLoginComponent } from './pages/confirm-login/confirm-login.compo
 import { UsernameSetupComponent } from './pages/username-setup/username-setup.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { UsernameRequestReasonformComponent } from './pages/username-request-reasonform/username-request-reasonform.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     AdminPanelComponent,
     AdminUpdateOrderComponent,
     ConfirmLoginComponent,
-    UsernameSetupComponent
+    UsernameSetupComponent,
+    UsernameRequestReasonformComponent
   ],
   imports: [
     BrowserModule,
