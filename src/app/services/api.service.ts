@@ -4,8 +4,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ApiService {
- serverUrl="http://duitto.macrosoftware.io/api/";
-  // serverUrl="http://localhost:5050/api/";
+
+  serverUrl="https://duitto.macrosoftware.io/api/";
+ //serverUrl="http://localhost:5050/api/";
+
   productUrl="";
   orderDetails:any;
   constructor(public http: HttpClient) { }
