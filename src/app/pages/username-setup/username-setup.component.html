@@ -34,13 +34,23 @@
               />
               
             </div>
-            <div>
-                
+            <div class="row">
+                <div class="col-sm-12">
                   <button class="uname-suggest-btn" mat-button *ngIf="userNameSuggestionLabel" (click)="setUnameFromSuggestion()">
                     <mat-icon>done</mat-icon>
                    {{userNameSuggestion}}
                 </button>
+                </div>
             </div>
+     
+            <div class="row">
+               <div class="col-sm-12">
+                <button class="uname-suggest-btn" mat-button *ngIf="reservedUserNameLabel" (click)="setUnameFromReserved()">
+                  <mat-icon>done</mat-icon>
+                 Reserved : {{reservedUserName}}
+              </button>
+            </div>
+          </div>
             
             <button class="login-btn" (click)="saveUsername()">
               Continue

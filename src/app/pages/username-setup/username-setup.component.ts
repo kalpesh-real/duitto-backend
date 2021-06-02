@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { SessionService } from 'src/app/services/session.service';
 import { Dialog } from 'src/app/Utils/dialog';
+import {MatDialog} from '@angular/material/dialog';
+import { UsernameRequestReasonformComponent } from '../username-request-reasonform/username-request-reasonform.component';
 
 @Component({
   selector: 'app-username-setup',
@@ -15,13 +17,16 @@ export class UsernameSetupComponent implements OnInit {
   show=false;
   fullName;
   userNameSuggestion;
+  reservedUserName;
   userNameSuggestionLabel =false;
   skipClicked=false;
   usernameError=false;
-  constructor(private service: ApiService, public sessionService: SessionService, public router: Router, public dialogService: Dialog) { }
+  reservedUserNameLabel=false;
+  constructor(public dialog: MatDialog,private service: ApiService, public sessionService: SessionService, public router: Router, public dialogService: Dialog) { }
 
   ngOnInit(): void {
   }
+ 
   saveUsername(){
     if(this.usernameError==false){
     this.customerId = this.sessionService.getUserProperty('id');
@@ -73,15 +78,19 @@ if(this.userName !=""){
     this.service.apiPOST("userNameVerification", data).subscribe((result: any) => {
       this.show=false;
       if(this.skipClicked!=true){
-        if (result.status == false && result.uname == "NA") {
+        if (result.status == false && result.uname == "NA" && result.reserveduname =="NA") {
           this.userNameSuggestionLabel = true;
           this.userNameSuggestion = this.userName;
-         }
-        else{
+         }else if(result.reserveduname == "NA" && result.uname != ""){
          this.userNameSuggestionLabel = true;
          this.userNameSuggestion = this.userName+"-"+this.randomUserName();
          this.usernameError=true;
-        }
+          }else if(result.reserveduname != "" && result.uname == "NA"){
+            this.reservedUserNameLabel = true;
+            this.userNameSuggestionLabel = true;
+            this.userNameSuggestion = this.userName+"-"+this.randomUserName();
+            this.reservedUserName = this.userName;
+           }
         }else{
         if (result.status == false && result.uname == "NA") {
            this.saveUsername();
@@ -108,6 +117,7 @@ if(this.userName !=""){
     })
   }else{
     this.userNameSuggestionLabel = false;
+    this.reservedUserNameLabel = false;
   }
   }
   randomUserName(){
@@ -124,5 +134,21 @@ setUnameFromSuggestion(){
   this.usernameError=false;
   this.userName = this.userNameSuggestion;
   this.userNameSuggestionLabel = false;
+}
+setUnameFromReserved(){
+  this.sessionService.set('reservedUserName',this.reservedUserName);
+  const dialogRef = this.dialog.open(UsernameRequestReasonformComponent, {
+  
+   
+  });
+  dialogRef.afterClosed().subscribe(result => {
+    this.userNameSuggestionLabel = false;
+    this.reservedUserNameLabel = false;
+    this.userName = this.userName+"-"+this.randomUserName();
+    this.saveUsername();
+
+
+  });
+ 
 }
 }

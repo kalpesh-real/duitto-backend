@@ -1,0 +1,41 @@
+<div class="row">
+   
+    <div class="col-sm-12">
+      <div class="form" style="width: 350px;">
+       
+          <div class="form-group">
+            <label for="reason">Reason</label>
+           
+            <textarea class="form-control w-100 h-100"
+            [(ngModel)]="reason"
+            placeholder="Enter Your reason"></textarea>
+            <div
+              class="text-danger"
+              *ngIf="
+              usernameRequestIsSubmitted && reasonError
+                
+              ">
+              <small>Please enter reson behind username request*</small>
+            </div>
+          </div>
+         
+        <div class="row" >
+            <div class="col-sm-12">
+              <button class="login-btn" (click)="requestToAdminForReservedUserName()">Submit</button>
+             <button class="close-btn" mat-dialog-close>Close</button>
+           </div>
+       </div>
+
+        
+      </div>
+     
+    </div>
+    <div class="col-sm-2"></div>
+  </div>
+  <div [class.loader-hidden]="!show">
+    <div class="loader-overlay">
+        <div>
+            <div *ngIf="show" class="loader"></div>
+        </div>
+    </div>
+  </div>
