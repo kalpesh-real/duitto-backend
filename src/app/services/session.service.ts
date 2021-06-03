@@ -34,5 +34,8 @@ export class SessionService {
     if (this.USER)
       return this.USER[name];
   }
+  checkSuccMsgFlag() {
+    return this.get("sucMsgFlag") ? true : false;
+  }
 
 }
