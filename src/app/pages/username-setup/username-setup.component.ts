@@ -22,12 +22,17 @@ export class UsernameSetupComponent implements OnInit {
   skipClicked=false;
   usernameError=false;
   reservedUserNameLabel=false;
+  errorMessage="";
   constructor(public dialog: MatDialog,private service: ApiService, public sessionService: SessionService, public router: Router, public dialogService: Dialog) { }
 
   ngOnInit(): void {
   }
  
   saveUsername(){
+    if(this.userName == "" || this.userName == undefined){
+    this.usernameError=true;
+    this.errorMessage="Please enter username*";
+    }
     if(this.usernameError==false){
     this.customerId = this.sessionService.getUserProperty('id');
     let data = this.sessionService.get("user");
@@ -92,11 +97,22 @@ if(this.userName !=""){
          this.userNameSuggestionLabel = true;
          this.userNameSuggestion = this.userName+"-"+this.randomUserName();
          this.usernameError=true;
+         this.errorMessage="Username already registered.Please select another*";
           }else if(result.reserveduname != "" && result.uname == "NA"){
-            this.reservedUserNameLabel = true;
-            this.userNameSuggestionLabel = true;
-            this.userNameSuggestion = this.userName+"-"+this.randomUserName();
-            this.reservedUserName = this.userName;
+
+            if(result.isAvailable==0 && result.isRequest==0){
+              this.reservedUserNameLabel = true;
+              this.userNameSuggestionLabel = true;
+              this.userNameSuggestion = this.userName+"-"+this.randomUserName();
+              this.reservedUserName = this.userName;
+            }else if(result.isRequest==1){
+             
+              this.userNameSuggestionLabel = true;
+              this.userNameSuggestion = this.userName+"-"+this.randomUserName();
+              this.usernameError=true;
+              this.errorMessage="Username already registered.Please select another*";
+              
+            }
            }
         }else{
         if (result.status == false && result.uname == "NA") {
@@ -125,6 +141,8 @@ if(this.userName !=""){
   }else{
     this.userNameSuggestionLabel = false;
     this.reservedUserNameLabel = false;
+    this.usernameError=true;
+    this.errorMessage="Please enter Username *";
   }
   }
   randomUserName(){
@@ -149,12 +167,12 @@ setUnameFromReserved(){
    
   });
   dialogRef.afterClosed().subscribe(result => {
+
     this.userNameSuggestionLabel = false;
     this.reservedUserNameLabel = false;
     this.userName = this.userName+"-"+this.randomUserName();
     this.saveUsername();
     this.sessionService.set('sucMsgFlag','showdialogmsg');
-
 
   });
  
