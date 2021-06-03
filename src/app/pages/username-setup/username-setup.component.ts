@@ -40,7 +40,12 @@ export class UsernameSetupComponent implements OnInit {
         this.sessionService.set('user', result.data);
         this.sessionService.newCustomer=false;
         this.router.navigate(['/']);
-        this.dialogService.showAlert("success","Success!","Your Username successfully Updated.");
+        if(!this.sessionService.checkSuccMsgFlag()){
+          this.dialogService.showAlert("success","Success!","Your Username successfully Updated.");
+        }else{
+          this.sessionService.clear('sucMsgFlag');
+        }
+        
       }
       else{
         this.dialogService.showAlert("error","Oops!","Something went wrong! try after some time.");
@@ -146,6 +151,7 @@ setUnameFromReserved(){
     this.reservedUserNameLabel = false;
     this.userName = this.userName+"-"+this.randomUserName();
     this.saveUsername();
+    this.sessionService.set('sucMsgFlag','showdialogmsg');
 
 
   });
