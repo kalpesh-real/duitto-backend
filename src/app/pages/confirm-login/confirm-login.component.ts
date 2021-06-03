@@ -13,14 +13,21 @@ export class ConfirmLoginComponent implements OnInit {
   key:any;
   show=false;
   constructor(private route: ActivatedRoute,public service:ApiService,public router:Router,public dialogService:Dialog,public sessionService:SessionService) {
+    if(sessionService.getUserProperty("userName") == undefined || sessionService.getUserProperty("userName") == "" ||sessionService.getUserProperty("userName") == null){
+      this.sessionService.newCustomer =true;  
+    }
+    else{
 
+    }
     this.key=this.route.snapshot.paramMap.get("id");
     
       this.confirmUserForLogin();
+
  
    }
 
   ngOnInit(): void {
+    
   }
   confirmUserForLogin(){
    // this.sessionService.set("user", result.data);

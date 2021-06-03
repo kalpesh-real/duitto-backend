@@ -39,7 +39,7 @@ export class UsernameRequestReasonformComponent implements OnInit {
       this.show=false;
      
       if (result.status == true) {
-       this.dialogService.showAlert("success","Success!","Your Username Request sent successfully.");
+       this.dialogService.showAlert("success","Success!","Your request will be process in the next 24 hours. A random username will be generated to you. Username will be updated automatically after admin approved it.");
        this.dialog.close();
        this.sessionService.clear('reservedUserName');
       }

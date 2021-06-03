@@ -14,12 +14,7 @@ export class HomePageComponent implements OnInit {
   
   constructor(public sessionService: SessionService, private router: Router, public service:ApiService) { 
     this.service.productUrl='';
-    if(sessionService.getUserProperty("userName") == undefined || sessionService.getUserProperty("userName") == "" ||sessionService.getUserProperty("userName") == null){
-      this.sessionService.newCustomer =true;  
-    }
-    else{
-
-    }
+   
   }
 
   ngOnInit(): void {
