@@ -32,7 +32,9 @@ export class UsernameSetupComponent implements OnInit {
     this.customerId = this.sessionService.getUserProperty('id');
     let data = this.sessionService.get("user");
     data['userName'] = this.userName;
-
+    if(this.userName == this.reservedUserName){
+      data['userName'] = this.userName+"-"+this.randomUserName();
+    }
     this.service.apiPOST("signup", data).subscribe((result: any) => {
       this.show=false;
       if (result.status == true) {
