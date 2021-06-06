@@ -13,12 +13,7 @@ export class ConfirmLoginComponent implements OnInit {
   key:any;
   show=false;
   constructor(private route: ActivatedRoute,public service:ApiService,public router:Router,public dialogService:Dialog,public sessionService:SessionService) {
-    if(sessionService.getUserProperty("userName") == undefined || sessionService.getUserProperty("userName") == "" ||sessionService.getUserProperty("userName") == null){
-      this.sessionService.newCustomer =true;  
-    }
-    else{
-
-    }
+   
     this.key=this.route.snapshot.paramMap.get("id");
     
       this.confirmUserForLogin();
@@ -38,6 +33,12 @@ export class ConfirmLoginComponent implements OnInit {
       if(result.status==true){
         this.show=false;
          this.sessionService.set("user", result.data);
+         if(this.sessionService.getUserProperty("userName") == undefined || this.sessionService.getUserProperty("userName") == "" || this.sessionService.getUserProperty("userName") == null){
+          this.sessionService.newCustomer =true;  
+        }
+        else{
+    
+        }
          this.router.navigate(['/']);
          //let tokenStr = 'Bearer ' + result.token;
         // localStorage.setItem('token', tokenStr);

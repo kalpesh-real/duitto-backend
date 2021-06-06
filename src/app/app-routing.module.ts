@@ -21,6 +21,7 @@ const routes: Routes = [
   {path:'admin/panel',component:AdminPanelComponent},
   {path:'admin/updateorder',component:AdminUpdateOrderComponent},
   {path:'confirmLogin/:id',component:ConfirmLoginComponent},
+  
   {path:'**',redirectTo:''}
 ];
 

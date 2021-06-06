@@ -50,8 +50,8 @@ form label {
 }
 
 .login-btn {
-  background: #222222;
-  border: 1px solid #222222;
+  background: #024C6f;
+  border: 1px solid #024C6f;
   border-radius: 4px;
   width: 350px;
   height: 50px;
@@ -104,8 +104,8 @@ p {
 }
 
 .active-tab {
-  background: #222222 !important;
-  border: 1px solid #222222 !important;
+  background: #024C6f !important;
+  border: 1px solid #024C6f !important;
   color: #ffffff !important;
 }
 .active-tab span {
