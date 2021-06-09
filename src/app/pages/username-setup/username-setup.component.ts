@@ -111,6 +111,7 @@ export class UsernameSetupComponent implements OnInit {
       uname: this.userName,
     };
     if (this.userName != "") {
+      this.usernameError = false;
       this.service.apiPOST("userNameVerification", data).subscribe(
         (result: any) => {
           this.show = false;

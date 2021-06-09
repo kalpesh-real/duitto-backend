@@ -21,7 +21,7 @@
     color: #222222;
   }
   
-  form label {
+  .form .label {
     font-family: Product Sans;
     font-style: normal;
     font-weight: normal;
@@ -146,7 +146,7 @@
   
     opacity: 0.5;
   }
-  form {
+  .form {
     margin-left: auto;
     margin-right: auto;
     width: min-content;
