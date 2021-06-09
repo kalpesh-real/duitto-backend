@@ -107,6 +107,7 @@ export class UsernameSetupComponent implements OnInit {
     //this.saveUsername();
   }
   onBlurEvent() {
+  
     let data = {
       uname: this.userName,
     };
@@ -125,8 +126,7 @@ export class UsernameSetupComponent implements OnInit {
               this.userNameSuggestion = this.userName;
             } else if (result.reserveduname == "NA" && result.uname != "") {
               this.userNameSuggestionLabel = true;
-              this.userNameSuggestion =
-                this.userName + "-" + this.randomUserName();
+              this.userNameSuggestion = this.userName + "-" + this.randomUserName();
               this.usernameError = true;
               this.errorMessage =
                 "Username already registered.Please select another*";
@@ -135,7 +135,7 @@ export class UsernameSetupComponent implements OnInit {
                 this.reservedUserNameLabel = true;
                 this.userNameSuggestionLabel = true;
                 this.userNameSuggestion =
-                  this.userName + "-" + this.randomUserName();
+                this.userName + "-" + this.randomUserName();
                 this.reservedUserName = this.userName;
               } else if (result.isRequest == 1) {
                 this.userNameSuggestionLabel = true;
